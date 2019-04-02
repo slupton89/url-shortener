@@ -1,10 +1,35 @@
-const express = require('express')
-const http = require('http')
+const { ApolloServer, gql } = require('apollo-server')
 
-const server = express()
+const urls = [
+  {
+    id: '123',
+    redirectURL: 'https://github.com'
+  },
+  {
+    id: '456',
+    redirectURL: 'https://dev.to'
+  }
+]
 
-server.get('/', (req, res, next) => {
-  res.send('Working').status(204)
+const typeDefs = gql`
+  type URL {
+    id: ID
+    redirectURL: String
+  }
+
+  type Query {
+    urls: [URL]
+  }
+`
+
+const resolvers = {
+  Query: {
+    urls: () => urls
+  }
+}
+
+const server = new ApolloServer({ typeDefs, resolvers })
+
+server.listen().then(({ url }) => {
+  console.log(`🚀  Server ready at ${url}`)
 })
-
-server.listen(1337, console.log('Listening on port 1337'))
