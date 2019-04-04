@@ -1,11 +1,12 @@
 const express = require('express')
 const { Url } = require('../Models/Url')
+const _ = require('lodash')
 const RedirectRouter = express.Router()
 
 RedirectRouter.get('/:id', (req, res) => {
-  Url.findById(req.params.id)
+  Url.findOne({ short: req.params.id })
   .then(url => {
-    console.log(url.redirectUrl)
+    res.redirect(url.redirectUrl)
   })
   .catch(err => {
     console.error(err)
@@ -17,10 +18,13 @@ RedirectRouter.post('/submit', (req, res) => {
   if(req.body.url) {
     const newUrl = req.body.url
     Url.create({
-      id: Math.random().toString(36).replace(/[^a-z]+/g, '').substr(0, 5),
+      short: _.sampleSize('ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789', 5).join(''),
       redirectUrl: newUrl
     })
-    .then(url => res.status(201).json(url.serialize()))
+    .then(url => {
+      console.log('short id: ', url.short)
+      res.status(201).json(url.serialize())
+    })
     .catch(err => {
       console.error(err)
       res.status(500).json({ message: 'Internal server error' })
@@ -31,7 +35,7 @@ RedirectRouter.post('/submit', (req, res) => {
 })
 
 RedirectRouter.delete('/:id', (req, res) => {
-  Url.findByIdAndRemove(req.query.id)
+  Url.findOneAndDelete({ short: req.params.id })
     .then(url => res.status(204).end())
     .catch(err => res.status(500).json({ message: 'Internal server error' }))
 })
