@@ -1,4 +1,6 @@
-const { ApolloServer, gql } = require('apollo-server')
+const express = require('express')
+const mongoose = require('mongoose')
+const RedirectRouter = require('./Routes/redirect')
 
 const urls = [
   {
@@ -11,25 +13,13 @@ const urls = [
   }
 ]
 
-const typeDefs = gql`
-  type URL {
-    id: ID
-    redirectURL: String
-  }
+mongoose.connect('mongodb://localhost/my_database', {useNewUrlParser: true})
 
-  type Query {
-    urls: [URL]
-  }
-`
+server.use(RedirectRouter)
 
-const resolvers = {
-  Query: {
-    urls: () => urls
-  }
-}
-
-const server = new ApolloServer({ typeDefs, resolvers })
-
-server.listen().then(({ url }) => {
-  console.log(`🚀  Server ready at ${url}`)
+server.get('/', (req, res, next) => {
+  res.send('Working').status(204)
 })
+
+
+server.listen(1337, console.log('Listening on port 1337'))

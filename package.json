@@ -18,7 +18,7 @@
   },
   "homepage": "https://github.com/slupton89/url-shortener#readme",
   "dependencies": {
-    "apollo-server": "^2.4.8",
-    "graphql": "^14.2.1"
+    "express": "^4.16.4",
+    "mongoose": "^5.4.21"
   }
 }
