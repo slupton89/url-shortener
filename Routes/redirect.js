@@ -13,7 +13,7 @@ RedirectRouter.get('/:id', (req, res) => {
   })
 })
 
-RedirectRouter.post('/', (req, res, next) => {
+RedirectRouter.post('/', (req, res) => {
   Url.create({
     redirectUrl: req.body.url
   })
@@ -22,6 +22,12 @@ RedirectRouter.post('/', (req, res, next) => {
     console.error(err)
     res.status(500).json({ message: 'Internal server error' })
   })
+})
+
+RedirectRouter.delete('/:id', (req, res) => {
+  Url.findByIdAndRemove(req.query.id)
+    .then(url => res.status(204).end())
+    .catch(err => res.status(500).json({ message: 'Internal server error' }))
 })
 
 module.exports = RedirectRouter
