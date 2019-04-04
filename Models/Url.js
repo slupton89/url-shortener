@@ -1,14 +1,14 @@
 const mongoose = require('mongoose')
 
 const urlSchema = mongoose.Schema({
-  id: { type: String, required: true },
+  short: { type: String, required: true },
   redirectUrl: { type: String, required: true }
 })
 
 urlSchema.methods.serialize = () => {
   return {
-    id: this._id,
-    urlRedirect: this.urlRedirect
+    short: this.short,
+    redirectUrl: this.redirectUrl
   }
 }
 
