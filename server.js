@@ -17,8 +17,6 @@ mongoose.connect('mongodb://localhost/my_database', {useNewUrlParser: true})
 
 server.use(RedirectRouter)
 
-server.get('/', (req, res, next) => {
-  res.send('Working').status(204)
-})
+server.use('*', (req, res) => res.status(404).json({ message: 'Not Found' }))
 
 server.listen(1337, console.log('Listening on port 1337'))
