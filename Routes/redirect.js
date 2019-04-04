@@ -1,5 +1,5 @@
 const express = require('express')
-
+const { Url } = require('../Models/Url')
 const RedirectRouter = express.Router()
 
 RedirectRouter.get('/:id', (req, res, next) => {
@@ -12,10 +12,14 @@ RedirectRouter.get('/:id', (req, res, next) => {
 
 RedirectRouter.post('/', (req, res, next) => {
   const url = req.query.url
-  res.send('URL: ' + url)
-
-  // create with url
-  // return id
+  Url.find(url)
+    .then(url => {
+      console.log(url)
+    })
+    .catch(err => {
+      console.error(err)
+      res.status.json({ message: 'Internal server error' })
+    })
 })
 
 module.exports = RedirectRouter
