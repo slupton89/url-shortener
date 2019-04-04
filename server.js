@@ -12,17 +12,6 @@ server.use(express.json())
 // use redirect router
 server.use(RedirectRouter)
 
-const urls = [
-  {
-    id: '123',
-    redirectURL: 'https://github.com'
-  },
-  {
-    id: '456',
-    redirectURL: 'https://dev.to'
-  }
-]
-
 // connect to db
 mongoose.connect(DATABASE_URL, {useNewUrlParser: true})
 
