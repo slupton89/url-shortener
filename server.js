@@ -2,7 +2,16 @@ const express = require('express')
 const mongoose = require('mongoose')
 const RedirectRouter = require('./Routes/redirect')
 
-const server = express()
+const urls = [
+  {
+    id: '123',
+    redirectURL: 'https://github.com'
+  },
+  {
+    id: '456',
+    redirectURL: 'https://dev.to'
+  }
+]
 
 mongoose.connect('mongodb://localhost/my_database', {useNewUrlParser: true})
 
