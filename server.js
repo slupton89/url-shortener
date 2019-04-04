@@ -1,6 +1,16 @@
 const express = require('express')
 const mongoose = require('mongoose')
+const { DATABASE_URL } = require('./config')
 const RedirectRouter = require('./Routes/redirect')
+
+// create server
+const server = express()
+
+// parse req body
+server.use(express.json())
+
+// use redirect router
+server.use(RedirectRouter)
 
 const urls = [
   {
@@ -13,10 +23,11 @@ const urls = [
   }
 ]
 
-mongoose.connect('mongodb://localhost/my_database', {useNewUrlParser: true})
+// connect to db
+mongoose.connect(DATABASE_URL, {useNewUrlParser: true})
 
-server.use(RedirectRouter)
-
+// custom 404 for any unused endpoint
 server.use('*', (req, res) => res.status(404).json({ message: 'Not Found' }))
 
+// connect server
 server.listen(1337, console.log('Listening on port 1337'))
