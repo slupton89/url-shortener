@@ -4,8 +4,9 @@
   "description": "",
   "main": "server.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node server.js"
+    "dev": "next",
+    "build": "next build",
+    "start": "node /Server/index.js"
   },
   "repository": {
     "type": "git",
@@ -18,8 +19,14 @@
   },
   "homepage": "https://github.com/slupton89/url-shortener#readme",
   "dependencies": {
+    "@zeit/next-sass": "^1.0.1",
+    "body-parser": "^1.18.3",
     "express": "^4.16.4",
     "lodash": "^4.17.11",
-    "mongoose": "^5.4.21"
+    "mongoose": "^5.4.21",
+    "next": "^8.0.4",
+    "node-sass": "^4.11.0",
+    "react": "^16.8.6",
+    "react-dom": "^16.8.6"
   }
 }
