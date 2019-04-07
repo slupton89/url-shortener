@@ -6,7 +6,7 @@ const RedirectRouter = express.Router()
 RedirectRouter.get('/:id', (req, res) => {
   Url.findOne({ short: req.params.id })
   .then(url => {
-    res.redirect(url.redirectUrl)
+    url !== null ? res.redirect(url.redirectUrl) : res.status(200)
   })
   .catch(err => {
     console.error(err)
