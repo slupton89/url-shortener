@@ -25,12 +25,15 @@ class Index extends React.Component {
   render() {
     return this.state.loading === true ? <div className='main'>Loading...</div>
       : this.state.shortLink.length >= 1
-        ? <div className='main result'>
+        ? <div className='main'>
             <div className="info">
               <img className="logo" src='../Static/logo.png' alt="logo" />
               <img className="title" src='../Static/shrinky.png' alt="logo" />
             </div>
-            <a href={`/${this.state.shortLink}`}>{window.location.href}{this.state.shortLink}</a>
+            <div className='result'>
+              <h1 className='yourLink'>Your new link is</h1>
+              <a href={`/${this.state.shortLink}`}>{window.location.href}{this.state.shortLink}</a>
+            </div>
             <button onClick={() => this.resetForm()} className='btn'>Go Back</button>
           </div>
       : (
