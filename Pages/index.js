@@ -6,15 +6,19 @@ function Index() {
 
   return (
     <div className="main">
-      <img className="logo" src='../Static/logo.png' alt="logo" />
-      <img className="title" src='../Static/shrinky.png' alt="logo" />
-      <form onSubmit={(e) => {
+      <div className="info">
+        <img className="logo" src='../Static/logo.png' alt="logo" />
+        <img className="title" src='../Static/shrinky.png' alt="logo" />
+      </div>
+      <form className="linkForm"
+      onSubmit={(e) => {
         e.preventDefault()
         console.log('Form submitted!', urlInput)
       }}>
       <input type="text" className="textField"
         name="url"
         placeholder="Enter a url to shrink"
+        autoComplete="off"
         defaultValue=''
         onChange={(e) => {urlInput = e.target.value}}
         required></input>
