@@ -3,10 +3,10 @@ const { Url } = require('../Models/Url')
 const _ = require('lodash')
 const RedirectRouter = express.Router()
 
-RedirectRouter.get('/:id', (req, res) => {
+RedirectRouter.get('/:id', (req, res, next) => {
   Url.findOne({ short: req.params.id })
   .then(url => {
-    res.redirect(url.redirectUrl)
+    url !== null ? res.redirect(url.redirectUrl) : next()
   })
   .catch(err => {
     console.error(err)
@@ -22,8 +22,7 @@ RedirectRouter.post('/submit', (req, res) => {
       redirectUrl: newUrl
     })
     .then(url => {
-      console.log('short id: ', url.short)
-      res.status(201).json(url.serialize())
+      res.send(url.short)
     })
     .catch(err => {
       console.error(err)
