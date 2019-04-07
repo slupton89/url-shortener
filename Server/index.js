@@ -19,7 +19,7 @@ nextApp.prepare().then(() => {
 
   mongoose.connect(DATABASE_URL, {useNewUrlParser: true})
 
-  server.use('/*', (req, res) => res.status(404).json({ message: 'Not Found' }))
+  server.use('*', (req, res) => res.status(404).json({ message: 'Not Found' }))
 
   server.listen(1337, console.log('Listening on port 1337'))
 })
