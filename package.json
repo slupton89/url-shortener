@@ -5,7 +5,7 @@
   "main": "/Server/index.js",
   "scripts": {
     "dev": "next",
-    "build": "next build",
+    "next-build": "next build",
     "start": "node ssr-server.js"
   },
   "repository": {
