@@ -1,0 +1,98 @@
+@import url(https://fonts.googleapis.com/css?family=Questrial);
+* {
+  font-family: 'Questrial';
+  margin: 0;
+  padding: 0; }
+
+body {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-content: center;
+  align-items: center;
+  width: 100vw;
+  height: 100vh;
+  background-image: linear-gradient(to right top, #003553, #004282, #1948ad, #6d40cb, #bb00d8); }
+
+.main {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-content: center;
+  align-items: center;
+  width: 75vw;
+  min-width: 460px;
+  height: 50vh;
+  min-height: 300px;
+  border: 0px;
+  border-radius: 15px;
+  transition: width ease 0.5s;
+  height: ease 0.5s;
+  background-color: rgba(0, 0, 0, 0.3); }
+  .main .result {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-content: center;
+    align-items: center; }
+    .main .result .yourLink {
+      color: white;
+      font-size: 30px;
+      margin: 0; }
+    .main .result a {
+      color: white;
+      font-size: 26px;
+      text-decoration: underline;
+      margin: 0; }
+
+.info {
+  display: flex;
+  flex-direction: column;
+  align-content: center;
+  align-items: center; }
+  .info .logo {
+    width: 120px; }
+  .info .title {
+    width: 325px; }
+
+.linkForm {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-content: center;
+  align-items: center; }
+
+.textField {
+  width: 60vw;
+  height: 50px;
+  margin: 15px;
+  font-size: 20px;
+  text-align: center;
+  color: white;
+  background-color: rgba(0, 0, 0, 0);
+  background-image: linear-gradient(21deg, #10abff, #1beabd);
+  border: 0px;
+  border-bottom: 2px solid linear-gradient(21deg, #10abff, #1beabd);
+  background-size: calc(100% + 4px) 2px;
+  /* 4px extra to cater for 2px border on right + 2px on left */
+  background-repeat: no-repeat;
+  background-origin: border-box;
+  /* make background start from border area itself instead of content/padding area */
+  background-position: left bottom;
+  transition: width ease 0.5s; }
+  .textField:focus {
+    outline: none;
+    color: white; }
+
+.btn {
+  width: 125px;
+  height: 40px;
+  margin: 15px;
+  color: white;
+  background-image: linear-gradient(21deg, #10abff, #1beabd);
+  border: 0px;
+  border-radius: 15px;
+  font-size: 24px; }
+  .btn:focus {
+    outline: none; }
+

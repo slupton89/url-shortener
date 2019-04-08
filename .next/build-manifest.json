@@ -1,0 +1,25 @@
+{
+  "devFiles": [],
+  "pages": {
+    "/": [
+      "static/runtime/webpack-91081d305a2e8fb55754.js",
+      "static/chunks/commons.06847d64c11b3d733689.js",
+      "static/runtime/main-6bc28664ebcf4fcd9654.js"
+    ],
+    "/_app": [
+      "static/runtime/webpack-91081d305a2e8fb55754.js",
+      "static/chunks/commons.06847d64c11b3d733689.js",
+      "static/runtime/main-6bc28664ebcf4fcd9654.js"
+    ],
+    "/_error": [
+      "static/runtime/webpack-91081d305a2e8fb55754.js",
+      "static/chunks/commons.06847d64c11b3d733689.js",
+      "static/runtime/main-6bc28664ebcf4fcd9654.js"
+    ],
+    "/index": [
+      "static/runtime/webpack-91081d305a2e8fb55754.js",
+      "static/chunks/commons.06847d64c11b3d733689.js",
+      "static/runtime/main-6bc28664ebcf4fcd9654.js"
+    ]
+  }
+}

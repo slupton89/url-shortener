@@ -1,0 +1,18 @@
+{
+  "./scss/index.scss": [
+    {
+      "id": "1LP+",
+      "name": "./pages/scss/index.scss",
+      "file": "static/chunks/styles.190f61e114491d3cbb1f.js",
+      "publicPath": "static/chunks/styles.190f61e114491d3cbb1f.js"
+    }
+  ],
+  "undefined": [
+    {
+      "id": "36aa",
+      "name": null,
+      "file": "static/chunks/styles.190f61e114491d3cbb1f.js",
+      "publicPath": "static/chunks/styles.190f61e114491d3cbb1f.js"
+    }
+  ]
+}
