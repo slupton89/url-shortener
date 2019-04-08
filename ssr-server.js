@@ -2,7 +2,7 @@ const express = require('express')
 const mongoose = require('mongoose')
 const next = require('next')
 const bodyParser = require('body-parser')
-const { DATABASE_URL } = require('./config')
+const { DATABASE_URL, PORT } = require('./config')
 const app = next(process.env.NODE_DEV !== 'production')
 const handle = app.getRequestHandler()
 const RedirectRouter = require('./Routes/redirect')
@@ -24,5 +24,5 @@ app.prepare().then(() => {
 
   server.use('*', (req, res) => res.status(404).json({ message: 'Not Found' }))
 
-  server.listen(1337, console.log('Listening on port 1337'))
+  server.listen(PORT, console.log('Listening on port 1337'))
 })
