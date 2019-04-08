@@ -7,7 +7,7 @@ class Index extends React.Component {
     super()
 
     this.state = {
-      urlInput: '',
+      urlInput: 'https://',
       loading: false,
       shortLink: ''
     }
@@ -15,7 +15,7 @@ class Index extends React.Component {
 
   resetForm = () => {
     this.setState({
-      urlInput: '',
+      urlInput: 'https://',
       loading: false,
       shortLink: ''
     })
@@ -27,8 +27,8 @@ class Index extends React.Component {
       : this.state.shortLink.length >= 1
         ? <div className='main'>
             <div className="info">
-              <img className="logo" src='../Static/logo.png' alt="logo" />
-              <img className="title" src='../Static/shrinky.png' alt="logo" />
+              <img className="logo" src='./Static/logo.png' alt="logo" />
+              <img className="title" src='./Static/shrinky.png' alt="logo" />
             </div>
             <div className='result'>
               <h1 className='yourLink'>Your new link is</h1>
@@ -61,7 +61,7 @@ class Index extends React.Component {
             name="url"
             placeholder="Enter a url to shrink"
             autoComplete="off"
-            defaultValue='https://'
+            defaultValue={this.state.urlInput}
             onChange={(e) => {this.state.urlInput = e.target.value}}
             required></input>
           <button type="submit" className="btn">Shrink!</button>

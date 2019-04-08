@@ -3,11 +3,11 @@ const mongoose = require('mongoose')
 const next = require('next')
 const bodyParser = require('body-parser')
 const { DATABASE_URL, DEV } = require('./config')
-const nextApp = next({ DEV })
-const handle = nextApp.getRequestHandler()
-const RedirectRouter = require('../Routes/redirect')
+const app = next({ DEV })
+const handle = app.getRequestHandler()
+const RedirectRouter = require('./Routes/redirect')
 
-nextApp.prepare().then(() => {
+app.prepare().then(() => {
   const server = express()
 
   server.use(express.json())
@@ -15,7 +15,9 @@ nextApp.prepare().then(() => {
   server.use(bodyParser.urlencoded({ extended: true }))
   server.use(RedirectRouter)
 
-  server.get('*', (req, res) => handle(req,res))
+  server.get('*', (req, res) => {
+    return handle(req,res)
+  })
 
   mongoose.connect(DATABASE_URL, {useNewUrlParser: true})
 

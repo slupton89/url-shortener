@@ -2,11 +2,11 @@
   "name": "url-shortener",
   "version": "1.0.0",
   "description": "",
-  "main": "server.js",
+  "main": "/Server/index.js",
   "scripts": {
     "dev": "next",
     "build": "next build",
-    "start": "node ./Server/index.js"
+    "start": "node ssr-server.js"
   },
   "repository": {
     "type": "git",
