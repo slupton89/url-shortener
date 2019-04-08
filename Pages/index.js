@@ -27,8 +27,8 @@ class Index extends React.Component {
       : this.state.shortLink.length >= 1
         ? <div className='main'>
             <div className="info">
-              <img className="logo" src='./Static/logo.png' alt="logo" />
-              <img className="title" src='./Static/shrinky.png' alt="logo" />
+              <img className="logo" src='./static/logo.png' alt="logo" />
+              <img className="title" src='./static/shrinky.png' alt="logo" />
             </div>
             <div className='result'>
               <h1 className='yourLink'>Your new link is</h1>

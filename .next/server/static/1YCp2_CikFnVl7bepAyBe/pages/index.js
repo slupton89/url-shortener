@@ -353,11 +353,11 @@ function (_React$Component) {
         className: "info"
       }, external_react_default.a.createElement("img", {
         className: "logo",
-        src: "./Static/logo.png",
+        src: "./static/logo.png",
         alt: "logo"
       }), external_react_default.a.createElement("img", {
         className: "title",
-        src: "./Static/shrinky.png",
+        src: "./static/shrinky.png",
         alt: "logo"
       })), external_react_default.a.createElement("div", {
         className: "result"
