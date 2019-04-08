@@ -7,6 +7,7 @@ const app = next(process.env.NODE_DEV !== 'production')
 const handle = app.getRequestHandler()
 const RedirectRouter = require('./Routes/redirect')
 
+console.log(DATABASE_URL)
 app.prepare().then(() => {
   const server = express()
 
